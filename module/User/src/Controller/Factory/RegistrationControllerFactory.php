@@ -5,6 +5,7 @@ namespace User\Controller\Factory;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 use User\Controller\RegistrationController;
+use User\Service\UserManager;
 
 /**
  * This is the factory for RegistrationController. Its purpose is to instantiate the

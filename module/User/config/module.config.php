@@ -3,11 +3,17 @@
 namespace User;
 
 use Zend\ServiceManager\Factory\InvokableFactory;
+use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 
 return [
     'controllers' => [
         'factories' => [
             Controller\RegistrationController::class => Controller\Factory\RegistrationControllerFactory::class,
+        ],
+    ],
+    'service_manager' => [
+        'factories' => [
+            Service\UserManager::class => Service\Factory\UserManagerFactory::class,
         ],
     ],
     'router' => [
@@ -50,5 +56,19 @@ return [
         'template_path_stack' => [
             'User' => __DIR__ . '/../view',
         ],
+    ],
+    'doctrine' => [
+        'driver' => [
+            __NAMESPACE__ . '_driver' => [
+                'class' => AnnotationDriver::class,
+                'cache' => 'array',
+                'paths' => [__DIR__ . '/../src/Entity']
+            ],
+            'orm_default' => [
+                'drivers' => [
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
+                ]
+            ]
+        ]
     ],
 ];
