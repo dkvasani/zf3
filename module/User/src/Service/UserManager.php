@@ -50,6 +50,13 @@ class UserManager
 
         $currentDate = date('Y-m-d H:i:s');
         $user->setDateCreated($currentDate);
+        $user->setPhone($data['phone']);
+        $user->setBillingPlan($data['billing_plan']);
+        $user->setCity($data['city']);
+        $user->setState($data['state']);
+        $user->setCountry($data['country']);
+        $user->setPostCode($data['post_code']);
+        $user->setStreetAddress($data['street_address']);
 
         // Add the entity to the entity manager.
         $this->entityManager->persist($user);
@@ -73,6 +80,14 @@ class UserManager
         $user->setEmail($data['email']);
         $user->setFullName($data['full_name']);
         $user->setStatus($data['status']);
+
+        $user->setPhone($data['phone']);
+        $user->setBillingPlan($data['billing_plan']);
+        $user->setCity($data['city']);
+        $user->setState($data['state']);
+        $user->setCountry($data['country']);
+        $user->setPostCode($data['post_code']);
+
 
         // Apply changes to database.
         $this->entityManager->flush();

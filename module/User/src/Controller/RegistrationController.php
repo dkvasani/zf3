@@ -129,21 +129,20 @@ class RegistrationController extends ApiController
 
         // Retrieve user choices from session.
         $userChoices = $this->sessionContainer->userChoices;
-        $this->userManager->addUser(
-            [ 'email' => $userChoices['step1']['email'],
-                'full_name' => $userChoices['step1']['full_name'],
-                'status' => 1,
-                'password' => $userChoices['step1']['password'],
-                'phone' => $userChoices['step2']['phone'],
-                'street_address' => "Street Address",
-                'city' => $userChoices['step2']['city'],
-                'state' => $userChoices['step2']['state'],
-                'post_code' => $userChoices['step2']['post_code'],
-                'country' => $userChoices['step2']['country'],
-                'billing_plan' => $userChoices['step3']['billing_plan'],
-                'payment_method' => $userChoices['step3']['payment_method'],
-            ]
-        );
+        $userData = [ 'email' => $userChoices['step1']['email'],
+            'full_name' => $userChoices['step1']['full_name'],
+            'status' => 1,
+            'password' => $userChoices['step1']['password'],
+            'phone' => $userChoices['step2']['phone'],
+            'street_address' => "Street Address",
+            'city' => $userChoices['step2']['city'],
+            'state' => $userChoices['step2']['state'],
+            'post_code' => $userChoices['step2']['post_code'],
+            'country' => $userChoices['step2']['country'],
+            'billing_plan' => $userChoices['step3']['billing_plan'],
+            'payment_method' => $userChoices['step3']['payment_method'],
+        ];
+        $this->userManager->addUser($userData);
         return new ViewModel([
             'userChoices' => $userChoices
         ]);

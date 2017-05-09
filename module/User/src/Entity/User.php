@@ -65,6 +65,11 @@ class User
     protected $postCode;
 
     /**
+     * @ORM\Column(name="phone")
+     */
+    protected $phone;
+
+    /**
      * @ORM\Column(name="country")
      */
     protected $country;
@@ -331,5 +336,15 @@ class User
     public function setBillingPlan($billingPlan)
     {
         $this->billingPlan = $billingPlan;
+    }
+
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
     }
 }
