@@ -12,6 +12,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use User\Form\RegistrationForm;
 use Zend\Session\Container;
+use restapi\Controller\ApiController;
 
 /**
  * This is the controller class displaying a page with the User Registration form.
@@ -19,7 +20,7 @@ use Zend\Session\Container;
  * each step. We use session container to remember user's choices on the previous
  * steps.
  */
-class RegistrationController extends AbstractActionController
+class RegistrationController extends ApiController
 {
 
     /**
@@ -146,5 +147,11 @@ class RegistrationController extends AbstractActionController
         return new ViewModel([
             'userChoices' => $userChoices
         ]);
+    }
+
+    public function demoAction()
+    {
+        $this->apiResponse = ['data' => 'dkvasani'];
+        return $this->createResponse();
     }
 }

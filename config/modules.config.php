@@ -26,5 +26,6 @@ return [
     'DoctrineORMModule',
     'Application',
     'Admin',
-    'User'
+    'User',
+    'restapi'
 ];

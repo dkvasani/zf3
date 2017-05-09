@@ -20,13 +20,15 @@
         "doctrine/doctrine-orm-module": "^1.1",
         "zendframework/zend-math": "^3.0",
         "zendframework/zend-mvc-i18n": "^1.0",
-        "zendframework/zend-crypt": "^3.2"
+        "zendframework/zend-crypt": "^3.2",
+        "ankitgs/restapi": "dev-master"
     },
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
             "Admin\\": "module/Admin/src/",
-            "User\\": "module/User/src/"
+            "User\\": "module/User/src/",
+            "restapi\\": "vendor/ankitgs/restapi/src/"
         }
     },
     "autoload-dev": {

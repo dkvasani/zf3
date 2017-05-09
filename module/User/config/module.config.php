@@ -50,6 +50,23 @@ return [
                 // route defined above here.
                 ],
             ],
+            'demo' => [
+                'type' => 'Literal',
+                'options' => [
+                    // Change this to something specific to your module
+                    'route' => '/user/demo',
+                    'defaults' => [
+                        'controller' => Controller\RegistrationController::class,
+                        'action' => 'demo',
+                        'isauth' => true,
+                    ],
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                // You can place additional routes that match under the
+                // route defined above here.
+                ],
+            ],
         ],
     ],
     'view_manager' => [
